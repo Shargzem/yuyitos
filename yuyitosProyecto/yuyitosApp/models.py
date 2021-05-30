@@ -17,7 +17,7 @@ class Administrador(models.Model):
 
 
 class Pedido(models.Model):
-    idPedido = models.IntegerField(primary_key=True)
+    idPedido = models.AutoField(primary_key=True)
     fecha = models.DateTimeField()
     nombre = models.CharField(max_length=100)
     cantidad = models.IntegerField()
@@ -44,7 +44,7 @@ class Proveedor(models.Model):
 
 
 class Tipo_producto(models.Model):
-    idTipoProducto = models.IntegerField(primary_key=True)
+    idTipoProducto = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)
 
     def __str__(self):
@@ -53,7 +53,7 @@ class Tipo_producto(models.Model):
 
 
 class Producto(models.Model):
-    idProducto = models.IntegerField(primary_key=True)
+    idProducto = models.AutoField(primary_key=True)
     codigoProducto = models.IntegerField()
     nombre = models.CharField(max_length=100)
     familia_producto = CharField(max_length=100)
@@ -68,7 +68,7 @@ class Producto(models.Model):
         return self.idProducto
 
 class Pedido_producto(models.Model):
-    idPedidoProducto = models.IntegerField(primary_key=True)
+    idPedidoProducto = models.AutoField(primary_key=True)
 
     def __str__(self):
         return self.idPedidoProducto
@@ -76,7 +76,7 @@ class Pedido_producto(models.Model):
 
 
 class Venta_detalle(models.Model):
-    idVentaDetalle = models.IntegerField(primary_key=True)
+    idVentaDetalle = models.AutoField(primary_key=True)
     cantidad = models.IntegerField()
     monto = models.IntegerField()
     monto_total = models.IntegerField()
@@ -87,7 +87,7 @@ class Venta_detalle(models.Model):
         return self.idVentaDetalle
 
 class Metodo_pago(models.Model):
-    idMetodoPago = models.IntegerField(primary_key=True)
+    idMetodoPago = models.AutoField(primary_key=True)
     tipoPago = models.CharField(max_length=100)
     fecha = models.DateTimeField()
     
@@ -95,7 +95,7 @@ class Metodo_pago(models.Model):
         return self.idMetodoPago
 
 class Boleta(models.Model):
-    idBoleta = models.IntegerField(primary_key=True)
+    idBoleta = models.AutoField(primary_key=True)
     fecha = models.DateTimeField()
     modificacion = models.DateTimeField()
     tipo_pago = models.CharField(max_length=100)
@@ -106,7 +106,7 @@ class Boleta(models.Model):
 
 
 class Cliente(models.Model):
-    idCliente = models.IntegerField(primary_key=True)
+    idCliente = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     estado = models.BooleanField()
@@ -117,7 +117,7 @@ class Cliente(models.Model):
 
 
 class Fiado(models.Model):
-    idFiado = models.IntegerField(primary_key=True)
+    idFiado = models.AutoField(primary_key=True)
     monto = models.IntegerField()
     abono = models.IntegerField()
     fecha_inicio = models.DateTimeField()
