@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from yuyitosApp.views import agregar_cliente
+from yuyitosApp.views import listar_cliente
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', agregar_cliente, name='agregar_cliente')
+    path('listado_cliente', listar_cliente, name='agregar_cliente')
 ]

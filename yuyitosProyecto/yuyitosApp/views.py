@@ -6,7 +6,7 @@ from .models import Cliente
 #se envia data como un diccionario(contexto)
 
 
-def agregar_cliente(request):
+def listar_cliente(request):
     clientes = Cliente.objects.all()   #select * from Cliente
     contexto = {
         'clientes': clientes
