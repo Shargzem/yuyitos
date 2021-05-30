@@ -1,0 +1,13 @@
+{% extends 'inicio.html' %}
+{% block titulo %}Agregar Cliente{% endblock titulo %}
+
+{% block body %}
+
+<form method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    <button type="submit" >Crear</button>
+</form>
+
+{% endblock body %}

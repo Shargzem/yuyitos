@@ -23,7 +23,7 @@ class Pedido(models.Model):
     cantidad = models.IntegerField()
     total = models.IntegerField()
     precio = models.IntegerField()
-    modificacion = DateTimeField()
+    modificacion = models.DateTimeField(auto_now=True)
     
 
     def __str__(self):
@@ -36,7 +36,7 @@ class Proveedor(models.Model):
     razon_social = models.CharField(max_length=100)
     giro = models.CharField(max_length=100)
     telefono = models.IntegerField()
-    modificacion = models.DateTimeField()
+    modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.rutEmpresa
@@ -62,7 +62,7 @@ class Producto(models.Model):
     estado = models.BooleanField()
     precio_costo = models.IntegerField()
     precio_venta = models.IntegerField()
-    modificacion = models.DateTimeField()
+    modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.idProducto
@@ -81,7 +81,7 @@ class Venta_detalle(models.Model):
     monto = models.IntegerField()
     monto_total = models.IntegerField()
     fecha = models.DateTimeField()
-    modificacion = models.DateTimeField()
+    modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.idVentaDetalle
@@ -97,7 +97,7 @@ class Metodo_pago(models.Model):
 class Boleta(models.Model):
     idBoleta = models.AutoField(primary_key=True)
     fecha = models.DateTimeField()
-    modificacion = models.DateTimeField()
+    modificacion = models.DateTimeField(auto_now=True)
     tipo_pago = models.CharField(max_length=100)
     estado = models.BooleanField()
 
@@ -110,7 +110,7 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     estado = models.BooleanField()
-    modificacion = models.DateTimeField()
+    modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.nombre
@@ -122,7 +122,7 @@ class Fiado(models.Model):
     abono = models.IntegerField()
     fecha_inicio = models.DateTimeField()
     fecha_final = models.DateTimeField()
-    modificacion = models.DateTimeField()
+    modificacion = models.DateTimeField(auto_now=True)
     estado = models.BooleanField()
 
     def __str__(self):
