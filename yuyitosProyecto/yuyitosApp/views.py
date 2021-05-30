@@ -18,7 +18,7 @@ def listado_cliente(request):
     }
     return render(request, 'listado_cliente.html', contexto)
 
-
+#Agregar Cliente function
 def agregar_cliente(request):
     if request.method == 'GET':
         form = ClienteForm()
