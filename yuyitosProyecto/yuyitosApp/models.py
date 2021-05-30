@@ -17,7 +17,7 @@ class Administrador(models.Model):
 
 
 class Pedido(models.Model):
-    idPedido = IntegerField(primary_key=True)
+    idPedido = models.IntegerField(primary_key=True)
     fecha = models.DateTimeField()
     nombre = models.CharField(max_length=100)
     cantidad = models.IntegerField()
