@@ -1,0 +1,29 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Listado de Clientes{% endblock titulo %}
+
+{% block body %}
+
+<h1 >Template de Cliente</h1>
+
+    <table class="center" border="2" >
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Estado</th>
+                <th>Modificacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.apellido }}</td>
+                <td>{{ cliente.estado }}</td>
+                <td>{{ cliente.modificacion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}
