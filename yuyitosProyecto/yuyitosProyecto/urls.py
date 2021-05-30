@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from yuyitosApp.views import agregar_cliente, listado_cliente, inicio
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio', inicio, name='inicio'),
-    path('agregar_cliente', agregar_cliente, name='agregar_cliente'),
-    path('listado_cliente', listado_cliente, name='listado_cliente')
+    path('agregar_cliente/', agregar_cliente, name='agregar_cliente'),
+    path('listado_cliente', listado_cliente, name='listado_cliente'),
+   
 ]

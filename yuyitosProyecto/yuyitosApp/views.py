@@ -36,3 +36,12 @@ def agregar_cliente(request):
             form.save()
             return redirect('listado_cliente')
     return render(request, 'agregar_cliente.html',contexto)
+
+
+
+def detalle_cliente(request, ):
+    clientes = Cliente.objets.get()
+    contexto = {
+        'clientes': clientes
+    }
+    return render(request , 'agregar_cliente.html',contexto)

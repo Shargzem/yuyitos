@@ -3,27 +3,36 @@
 
 {% block body %}
 
-<h1 >Template de Cliente</h1>
 
-    <table class="center" border="2" >
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Estado</th>
-                <th>Modificacion</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cliente in clientes %}
-            <tr>
-                
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.apellido }}</td>
-                <td>{{ cliente.estado }}</td>
-                <td>{{ cliente.modificacion }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="center" >
+        
+        
+        <table class="center" border="4" >
+            <h1 class="center">Listado de Clientes</h1>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Estado</th>
+                    <th>Modificacion</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.estado }}</td>
+                    <td>{{ cliente.modificacion }}</td>
+                    <td><button class="btn btn-success" >Detalle </button></td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    
 {% endblock body %}
