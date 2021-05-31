@@ -39,9 +39,27 @@ def agregar_cliente(request):
 
 
 
-def detalle_cliente(request, ):
-    clientes = Cliente.objets.get()
-    contexto = {
-        'clientes': clientes
-    }
+
+def editarCliente(request, idCliente ):
+    cliente = Cliente.objects.get(idCliente = idCliente)
+    if request.method == 'GET':
+        form = ClienteForm(instance = cliente)
+        contexto = {
+            'form': form
+        }
+    else:
+        form = ClienteForm(request.POST, instance= cliente)
+        contexto = {
+            'form': form
+        }
+        if form.is_valid():
+            form.save()
+            return redirect('listado_cliente')
+
     return render(request , 'agregar_cliente.html',contexto)
+
+
+def eliminarCliente(request, idCliente):
+    cliente = Cliente.objects.get(idCliente=idCliente)
+    cliente.delete()
+    return redirect('listado_cliente')
