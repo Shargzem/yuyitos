@@ -2,7 +2,9 @@
 {% block titulo %} Listado de Clientes{% endblock titulo %}
 
 {% block body %}
-
+    <script>
+        
+    </script>
 
     <div class="center" >
         
@@ -26,12 +28,17 @@
                     <td>{{ cliente.apellido }}</td>
                     <td>{{ cliente.estado }}</td>
                     <td>{{ cliente.modificacion }}</td>
-                    <td> <a href="{% url 'editar_cliente' cliente.idCliente %}">Editar</a> <a href="{% url 'eliminar_cliente' cliente.idCliente %}">Eliminar</a> </td>
+                    <td> <a href="{% url 'editar_cliente' cliente.idCliente %}">Editar</a> <a href="{% url 'eliminar_cliente' cliente.idCliente %}">Eliminar</a>  </td>
                     
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <div>
+            <button type="button" class="btn btn-success" >
+                <a href="http://127.0.0.1:8000/listado_fiado/"">Fiados</a>
+            </button>
+        </div>
     </div>
 
     

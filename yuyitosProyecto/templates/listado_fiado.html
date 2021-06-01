@@ -1,0 +1,46 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Listado de Productos{% endblock titulo %}
+
+{% block body %}
+   
+    <div class="center" >
+        
+        
+        <table class="center" border="4" >
+            <h1 class="center">Listado de Fiados</h1>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Monto</th>
+                    <th>Abono</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Modificacion</th>
+                    <th>Estado</th>
+                    <th>Cliente</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fiado in object_list %}
+                <tr>
+                    
+                    <td>{{ fiado.idFiado }}</td>
+                    <td>{{ fiado.monto }}</td>
+                    <td>{{ fiado.abono }}</td>
+                    <td>{{ fiado.fecha_inicio }}</td>
+                    <td>{{ fiado.fecha_final }}</td>
+                    <td>{{ fiado.modificacion }}</td>
+                    <td>{{ fiado.estado }}</td>
+                    <td>{{ fiado.cliente }}</td>
+                    <td> <a href="{% url 'editar_fiado' fiado.idFiado %}">Editar</a> <a href="{% url 'eliminar_fiado' fiado.idProducto %}">Eliminar</a> </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h1>Total: {{  }}</h1>
+    </div>
+
+    
+{% endblock body %}

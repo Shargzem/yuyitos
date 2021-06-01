@@ -1,6 +1,15 @@
-<form method="POST">
+{% extends 'inicio.html' %}
+
+{% block body %}
+
+
+
+<form class="center" method="POST">
     {% csrf_token %}
     <h1>Esta seguro que desea eliminar al {{ object }}?</h1>
     <button type="submit"  name="button">Confirmar</button>
     <a href="{% url 'listado_cliente' %}">Cancelar</a>
 </form>
+
+
+{% endblock body %}

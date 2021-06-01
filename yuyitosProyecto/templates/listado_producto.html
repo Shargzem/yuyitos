@@ -1,0 +1,46 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Listado de Productos{% endblock titulo %}
+
+{% block body %}
+  
+
+    <div class="center" >
+        
+        
+        <table class="center" border="4" >
+            <h1 class="center">Listado de Productos</h1>
+            <thead>
+                <tr>
+                    <th>Codigo Producto</th>
+                    <th>Nombre</th>
+                    <th>Familia Producto</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Precio Costo</th>
+                    <th>Precio Venta</th>
+                    <th>Modificación</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in object_list %}
+                <tr>
+                    
+                    <td>{{ producto.codigoProducto }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.familia_producto }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.estado }}</td>
+                    <td>{{ producto.precio_costo }}</td>
+                    <td>{{ producto.precio_venta }}</td>
+                    <td>{{ producto.modificacion }}</td>
+                    <td> <a href="{% url 'editar_producto' producto.idProducto %}">Editar</a> <a href="{% url 'eliminar_producto' producto.idProducto %}">Eliminar</a> </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    
+{% endblock body %}

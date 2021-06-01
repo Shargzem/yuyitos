@@ -54,18 +54,17 @@ class Tipo_producto(models.Model):
 
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True)
-    codigoProducto = models.IntegerField()
+    codigoProducto = models.BigIntegerField()
     nombre = models.CharField(max_length=100)
     familia_producto = CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
-    precio = models.IntegerField()
     estado = models.BooleanField()
     precio_costo = models.IntegerField()
     precio_venta = models.IntegerField()
     modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.idProducto
+        return self.nombre
 
 class Pedido_producto(models.Model):
     idPedidoProducto = models.AutoField(primary_key=True)
@@ -111,6 +110,7 @@ class Cliente(models.Model):
     apellido = models.CharField(max_length=100)
     estado = models.BooleanField()
     modificacion = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
         return self.nombre
@@ -124,6 +124,7 @@ class Fiado(models.Model):
     fecha_final = models.DateTimeField()
     modificacion = models.DateTimeField(auto_now=True)
     estado = models.BooleanField()
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, default=9)
 
-    def __str__(self):
+    def __int__(self):
         return self.idFiado

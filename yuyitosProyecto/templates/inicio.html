@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+    <script src="{%  static  'node_modules/sweetalert2/dist/sweetalert2.all.js'  %}"></script>
     <title>{% block titulo %}Almacen Yuyitos{% endblock titulo %}</title>
 </head>
 <body>
@@ -22,24 +23,34 @@
               <li class="sidebar-brand">
                   <img src="http://kodi.wiki/images/c/c1/Thumbnail-light-transparent.png" alt="KODI">
               </li>
-              <li> <a href="#">Home</a>
+              <li> <a href="http://127.0.0.1:8000/inicio">Home</a>
   
               </li>
-              <li> <a href="#nope" data-toggle="collapse" data-target="#drop1"> Something<span class="caret"></span></a>
+              <li> <a href="#nope" data-toggle="collapse" data-target="#drop1"> Cliente<span class="caret"></span></a>
   
                   <ul id="drop1" class="collapse" data-parent="#sideNavParent">
-                      <li><a href="about-us">Something</a>
+                      <li><a href="http://127.0.0.1:8000/agregar_cliente">Agregar</a>
   
                       </li>
-                      <li><a href="our-journey">Something</a>
-  
-                      </li>
-                      <li><a href="where-we-are-going">Something</a>
+                      <li><a href="http://127.0.0.1:8000/listado_cliente">Listar</a>
   
                       </li>
                   </ul>
+                  
               </li>
-              <li><a href="what-we-do">Something</a>
+              <li> <a href="#nope" data-toggle="collapse" data-target="#drop2"> Producto<span class="caret"></span></a>
+  
+                <ul id="drop2" class="collapse" data-parent="#sideNavParent">
+                    <li><a href="http://127.0.0.1:8000/agregar_producto/">Agregar</a>
+
+                    </li>
+                    <li><a href="http://127.0.0.1:8000/listado_producto/">Listar</a>
+
+                    </li>
+                </ul>
+                
+              </li>
+              <li><a href="http://127.0.0.1:8000/listado_fiado/">Fiados Clientes</a>
   
               </li>
               <li><a href="the-building">Something</a>

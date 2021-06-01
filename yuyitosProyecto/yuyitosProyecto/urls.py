@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from yuyitosApp.views import agregar_cliente, editarCliente, eliminarCliente, listado_cliente, inicio
-from yuyitosApp.class_view import ClienteList, ClienteCreate, ClienteUpdate, ClienteDelete
+from yuyitosApp.views import agregar_cliente, editarCliente, eliminarCliente, listado_cliente, inicio, agregar_producto, listado_producto, editarProducto, eliminarProducto, agregar_fiado, listado_fiado
+from yuyitosApp.class_view import ClienteList, ClienteCreate, ClienteUpdate, ClienteDelete, ProductoList, ProductoCreate, ProductoUpdate, ProductoDelete, FiadoList, FiadoCreate, FiadoUpdate, FiadoDelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,20 @@ urlpatterns = [
     path('agregar_cliente/', ClienteCreate.as_view(), name='agregar_cliente'),
     path('listado_cliente/', ClienteList.as_view(), name='listado_cliente'),
     path('editar_cliente/<int:pk>/', ClienteUpdate.as_view(), name='editar_cliente'),
-    path('eliminar_cliente/<int:pk>/', ClienteDelete.as_view(), name='eliminar_cliente')
+    path('eliminar_cliente/<int:pk>/', ClienteDelete.as_view(), name='eliminar_cliente'),
+
+
+    path('agregar_producto/', ProductoCreate.as_view(), name='agregar_producto'),
+    path('listado_producto/', ProductoList.as_view(), name='listado_producto'),
+    path('editar_producto/<int:pk>/', ProductoUpdate.as_view(), name='editar_producto'),
+    path('eliminar_producto/<int:pk>/', ProductoDelete.as_view(), name='eliminar_producto'),
+
+
+    path('agregar_fiado/', FiadoCreate.as_view(), name='agregar_fiado'),
+    path('listado_fiado/', FiadoList.as_view(), name='listado_fiado'),
+    path('editar_fiado/<int:pk>/', FiadoUpdate.as_view(), name='editar_fiado'),
+    path('eliminar_fiado/<int:pk>/', FiadoDelete.as_view(), name='eliminar_fiado')
+
+
+
 ]
