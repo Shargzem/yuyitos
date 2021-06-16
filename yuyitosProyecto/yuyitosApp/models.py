@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields import BooleanField, CharField, DateTimeField, IntegerField
 from django.db.models.fields.related import ForeignKey
+from django.core.validators import MinValueValidator
 
 # Create your models here.
 class Administrador(models.Model):
@@ -77,13 +78,14 @@ class Pedido_producto(models.Model):
 
 class Venta_detalle(models.Model):
     idVentaDetalle = models.AutoField(primary_key=True)
-    cantidad = models.IntegerField()
-    monto = models.IntegerField()
+    cantidad = models.PositiveIntegerField(validators=[MinValueValidator(1)])
+    monto = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     monto_total = models.IntegerField(blank=True, null=True)
     fecha = models.DateTimeField(auto_now=True)
     modificacion = models.DateTimeField(auto_now=True)
     producto = models.ForeignKey('Producto', on_delete=models.CASCADE, default=1)
     metodoPago = models.ForeignKey('Metodo_pago', on_delete=models.CASCADE, default=2)
+    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE, default=9)
 
     
 

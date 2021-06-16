@@ -36,6 +36,6 @@ class FiadoForm(forms.ModelForm):
 class VentaForm(forms.ModelForm):
     class Meta:
         model = Venta_detalle
-        fields = ('__all__')
+        fields = ('cantidad', 'producto','monto','metodoPago', 'cliente')
 
         

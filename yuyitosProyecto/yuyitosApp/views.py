@@ -237,7 +237,7 @@ def agregar_venta(request):
 
 
 
-def editarProducto(request, idVentaDetalle ):
+def editarVenta(request, idVentaDetalle ):
     venta = Venta_detalle.objects.get(idVentaDetalle = idVentaDetalle)
     if request.method == 'GET':
         form = VentaForm(instance = venta)
@@ -256,7 +256,7 @@ def editarProducto(request, idVentaDetalle ):
     return render(request , 'agregar_venta.html',contexto)
 
 
-def eliminarProducto(request, idVentaDetalle):
+def eliminarVenta(request, idVentaDetalle):
     venta = Venta_detalle.objects.get(idVentaDetalle = idVentaDetalle)
     venta.delete()
     return redirect('listado_venta')

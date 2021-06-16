@@ -1,20 +1,21 @@
 {% extends 'inicio.html' %}
 {% block titulo %} Listado de Ventas{% endblock titulo %}
 
+
 {% block body %}
   
 
 <div id="page-content-wrapper">
     <div class="container">
         <div  class="row">
-            <div class="col-xl-offset-2 col-xl-8">
+            <div class="">
                 <div class="card">
                     <div class="card-body-flex">
                         <h2>Listado de Ventas</h2>
 
-                        <table  border="6" >
+                        <table id="dtBasicExample" class="table table-hover table-sm" >
                             <h1 class="center">Listado de Ventas</h1>
-                            <thead>
+                            <thead >
                                 <tr>
                                     <th>id</th>
                                     <th>Cantidad</th>
@@ -23,6 +24,8 @@
                                     <th>Fecha </th>
                                     <th>Modificacion</th>
                                     <th>Producto</th>
+                                    <th>Metodo de pago</th>
+                                    <th>Cliente</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -37,6 +40,8 @@
                                     <td>{{ venta.fecha }}</td>
                                     <td>{{ venta.modificacion}}</td>
                                     <td>{{ venta.producto }}</td>
+                                    <td>{{ venta.metodoPago }}</td>
+                                    <td>{{ venta.cliente }}</td>
                                     
                                     <td> <a href="#">Editar</a> <a href="#">Eliminar</a> </td>
                                     
@@ -54,3 +59,4 @@
 
     
 {% endblock body %}
+
