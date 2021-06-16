@@ -84,7 +84,6 @@ class Venta_detalle(models.Model):
     fecha = models.DateTimeField(auto_now=True)
     modificacion = models.DateTimeField(auto_now=True)
     producto = models.ForeignKey('Producto', on_delete=models.CASCADE, default=1)
-    metodoPago = models.ForeignKey('Metodo_pago', on_delete=models.CASCADE, default=2)
     cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE, default=9)
 
     
@@ -97,6 +96,7 @@ class Metodo_pago(models.Model):
     idMetodoPago = models.AutoField(primary_key=True)
     tipoPago = models.CharField(max_length=100)
     fecha = models.DateTimeField(auto_now=True)
+
     
     def __str__(self):
         return self.tipoPago

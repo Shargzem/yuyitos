@@ -1,4 +1,5 @@
 {% extends 'inicio.html' %}
+{% load static %}
 {% block titulo %} Listado de Ventas{% endblock titulo %}
 
 
@@ -24,7 +25,6 @@
                                     <th>Fecha </th>
                                     <th>Modificacion</th>
                                     <th>Producto</th>
-                                    <th>Metodo de pago</th>
                                     <th>Cliente</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -40,10 +40,9 @@
                                     <td>{{ venta.fecha }}</td>
                                     <td>{{ venta.modificacion}}</td>
                                     <td>{{ venta.producto }}</td>
-                                    <td>{{ venta.metodoPago }}</td>
                                     <td>{{ venta.cliente }}</td>
                                     
-                                    <td> <a href="#">Editar</a> <a href="#">Eliminar</a> </td>
+                                    <td> <a href="#">Editar</a> <a href="{% url 'eliminar_venta' venta.idVentaDetalle %}">Eliminar</a> </td>
                                     
                                 </tr>
                                 {% endfor %}
