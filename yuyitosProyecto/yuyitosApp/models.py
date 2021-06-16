@@ -58,6 +58,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     familia_producto = CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
+    fecha_vencimiento = models.DateTimeField()
     estado = models.BooleanField()
     precio_costo = models.IntegerField()
     precio_venta = models.IntegerField()
@@ -78,23 +79,30 @@ class Venta_detalle(models.Model):
     idVentaDetalle = models.AutoField(primary_key=True)
     cantidad = models.IntegerField()
     monto = models.IntegerField()
-    monto_total = models.IntegerField()
-    fecha = models.DateTimeField()
+    monto_total = models.IntegerField(blank=True, null=True)
+    fecha = models.DateTimeField(auto_now=True)
     modificacion = models.DateTimeField(auto_now=True)
+    producto = models.ForeignKey('Producto', on_delete=models.CASCADE, default=1)
+    metodoPago = models.ForeignKey('Metodo_pago', on_delete=models.CASCADE, default=2)
 
-    def __str__(self):
+    
+
+    def __int__(self):
         return self.idVentaDetalle
+
 
 class Metodo_pago(models.Model):
     idMetodoPago = models.AutoField(primary_key=True)
     tipoPago = models.CharField(max_length=100)
-    fecha = models.DateTimeField()
+    fecha = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return self.idMetodoPago
+        return self.tipoPago
+
 
 class Boleta(models.Model):
     idBoleta = models.AutoField(primary_key=True)
+    folio = models.IntegerField(default=2)
     fecha = models.DateTimeField()
     modificacion = models.DateTimeField(auto_now=True)
     tipo_pago = models.CharField(max_length=100)
@@ -124,7 +132,7 @@ class Fiado(models.Model):
     fecha_final = models.DateTimeField()
     modificacion = models.DateTimeField(auto_now=True)
     estado = models.BooleanField()
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, default=9)
+    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE, default=9)
 
     def __int__(self):
         return self.idFiado

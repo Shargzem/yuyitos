@@ -2,8 +2,8 @@ from django.db import models
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView #View
 from django.urls import reverse_lazy
-from .forms import FiadoForm, ClienteForm, ProductoForm
-from .models import Fiado, Cliente, Producto
+from .forms import FiadoForm, ClienteForm, ProductoForm, VentaForm
+from .models import Fiado, Cliente, Producto, Venta_detalle
 from django.contrib import messages
 
 #Begin Cliente
@@ -69,7 +69,7 @@ class ProductoDelete(DeleteView):
 
 
 
-
+#Begin Fiado
 
 
 class FiadoList(ListView):
@@ -96,3 +96,38 @@ class FiadoDelete(DeleteView):
     model = Fiado
     template_name = 'confirmar.html'
     success_url = reverse_lazy('listado_fiado')
+
+
+#End Fiado
+
+
+
+#Begin venta_detalle
+
+class Venta_detalleList(ListView):
+    model = Venta_detalle
+    template_name = 'listado_venta.html'
+
+    #def get_queryset(self): 
+     #   return self.model.objects.all()[:2]
+
+class Venta_detalleCreate(CreateView):
+    model = Venta_detalle
+    form_class = VentaForm
+    template_name = 'agregar_venta.html'
+    success_url = reverse_lazy('listado_venta')
+
+class Venta_detalleUpdate(UpdateView):
+    model = Venta_detalle
+    form_class = VentaForm
+    template_name = 'agregar_venta.html'
+    success_url = reverse_lazy('listado_venta')
+    
+
+class Venta_detalleDelete(DeleteView):
+    model = Venta_detalle
+    template_name = 'confirmar.html'
+    success_url = reverse_lazy('listado_venta')
+
+
+#End venta_detalle

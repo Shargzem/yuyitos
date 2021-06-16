@@ -1,8 +1,10 @@
 from django.http import request
 from django.shortcuts import redirect, render
-from .models import Fiado, Cliente, Producto
-from .forms import FiadoForm, ClienteForm, ProductoForm
+from .models import Fiado, Cliente, Producto, Venta_detalle, Metodo_pago
+from .forms import FiadoForm, ClienteForm, ProductoForm, VentaForm
 from django.contrib import messages
+from django.db.models import Sum
+
 # Create your views here.
 
 #se envia data como un diccionario(contexto)
@@ -74,6 +76,10 @@ def eliminarCliente(request, idCliente):
 
 #Begin Fiado
 
+
+def sumarFiado(request):
+    fiado = Fiado.objects.all()
+    return render(request, 'listado_fiado.html', {'Fiado':'idFiado'})
 
 
 def listado_fiado(request):
@@ -161,7 +167,7 @@ def agregar_producto(request):
         }
         if form.is_valid():
             form.save()
-            messages.success("Editado")
+            contexto["mensaje"] = "Guardado exitosamente"
             return redirect('listado_producto')
     return render(request, 'agregar_producto.html',contexto)
 
@@ -193,3 +199,66 @@ def eliminarProducto(request, idProducto):
     return redirect('listado_producto')
 
 #End Producto
+
+
+
+
+#Begin Venta
+
+
+def listado_venta(request):
+    ventas = Venta_detalle.objects.all()   #select * from Producto
+    contexto = {
+        'ventas': ventas
+    }
+    return render(request, 'listado_venta.html', contexto)
+
+#Agregar Cliente function
+def agregar_venta(request):
+    if request.method == 'GET':
+        form = VentaForm()
+        contexto = {
+            'form': form
+            
+        }
+    else:
+        form = VentaForm(request.POST)
+        contexto = {
+            'form': form
+            
+        }
+        if form.is_valid():
+            
+            form.save()
+            messages.success("Editado")
+            return redirect('listado_venta')
+    return render(request, 'agregar_venta.html',contexto)
+
+
+
+
+def editarProducto(request, idVentaDetalle ):
+    venta = Venta_detalle.objects.get(idVentaDetalle = idVentaDetalle)
+    if request.method == 'GET':
+        form = VentaForm(instance = venta)
+        contexto = {
+            'form': form
+        }
+    else:
+        form = VentaForm(request.POST, instance= venta)
+        contexto = {
+            'form': form
+        }
+        if form.is_valid():
+            form.save()
+            return redirect('listado_venta')
+
+    return render(request , 'agregar_venta.html',contexto)
+
+
+def eliminarProducto(request, idVentaDetalle):
+    venta = Venta_detalle.objects.get(idVentaDetalle = idVentaDetalle)
+    venta.delete()
+    return redirect('listado_venta')
+
+#End Venta

@@ -1,6 +1,12 @@
 from django.contrib import admin
-from .models import Administrador, Pedido, Proveedor, Producto, Venta_detalle, Tipo_producto, Pedido_producto, Metodo_pago,Boleta, Cliente, Fiado
+
+from .models import Administrador, Pedido, Proveedor, Producto, Venta_detalle, Tipo_producto, Pedido_producto, Metodo_pago, Boleta, Cliente, Fiado
 # Register your models here.
+
+
+
+
+
 
 admin.site.register(Administrador)
 admin.site.register(Pedido)
@@ -13,3 +19,4 @@ admin.site.register(Metodo_pago)
 admin.site.register(Boleta)
 admin.site.register(Cliente) 
 admin.site.register(Fiado)
+

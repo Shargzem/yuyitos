@@ -33,13 +33,13 @@
                     <td>{{ fiado.modificacion }}</td>
                     <td>{{ fiado.estado }}</td>
                     <td>{{ fiado.cliente }}</td>
-                    <td> <a href="{% url 'editar_fiado' fiado.idFiado %}">Editar</a> <a href="{% url 'eliminar_fiado' fiado.idProducto %}">Eliminar</a> </td>
+                    <td> <a href="{% url 'editar_fiado' fiado.idFiado %}">Editar</a> <a href="{% url 'eliminar_fiado' fiado.idFiado %}">Eliminar</a> </td>
                     
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <h1>Total: {{  }}</h1>
+        
     </div>
 
     

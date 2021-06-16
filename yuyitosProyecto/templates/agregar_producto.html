@@ -8,13 +8,32 @@
 <div id="page-content-wrapper">
     <div class="container" >
         <div class="row" >
-            <form class="col-xl-offset-2 col-xl-8" method="post">
-                {% csrf_token %}
+            <div class="col-12 col-md-6 offset-md-3" >
+
+                <div class="card" >
+                    <div class="card-body" >
+                        <h2>Nuevo Producto</h2>
+                        <form  method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="d-flex justify-content-end" >
+                            
+                            
+                           
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                
+                                <button type="submit" class="btn btn-success">Crear</button>
             
-                {{ form.as_p }}
-                <input type="hidden" name="next" value="{{ request.path }}">
-                <button type="submit" class="btn btn-success">Crear</button>
-            </form>
+                            </div>
+                            
+                        </form>
+                        {{mensaje}}
+                    </div>
+
+                </div>
+                
+            </div>
+            
         </div>
         
     </div>

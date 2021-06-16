@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     
     <meta charset="UTF-8">
@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
     <script src="{%  static  'node_modules/sweetalert2/dist/sweetalert2.all.js'  %}"></script>
-    <title>{% block titulo %}Almacen Yuyitos{% endblock titulo %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <title style="text-align:center" >{% block titulo %}Almacen Yuyitos{% endblock titulo %}</title>
 </head>
 <body>
     
@@ -50,10 +52,22 @@
                 </ul>
                 
               </li>
+              <li> <a href="#nope" data-toggle="collapse" data-target="#drop3"> Ventas <span class="caret"></span></a>
+  
+                <ul id="drop3" class="collapse" data-parent="#sideNavParent">
+                    <li><a href="http://127.0.0.1:8000/agregar_venta/">Ventas</a>
+
+                    </li>
+                    <li><a href="http://127.0.0.1:8000/listado_venta/">Listado de Ventas</a>
+
+                    </li>
+                </ul>
+                
+              </li>
               <li><a href="http://127.0.0.1:8000/listado_fiado/">Fiados Clientes</a>
   
               </li>
-              <li><a href="the-building">Something</a>
+              <li><a href="the-building">Reportes</a>
   
               </li>
               <li><a href="volunteer">Something</a>
@@ -68,7 +82,7 @@
           <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-12">
-                       <h1>Yuyitos</h1>
+                       <h1 style="text-align:start" >Gestión de Almacen</h1>
   
                   </div>
               </div>

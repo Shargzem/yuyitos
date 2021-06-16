@@ -1,0 +1,56 @@
+{% extends 'inicio.html' %}
+{% block titulo %} Listado de Ventas{% endblock titulo %}
+
+{% block body %}
+  
+
+<div id="page-content-wrapper">
+    <div class="container">
+        <div  class="row">
+            <div class="col-xl-offset-2 col-xl-8">
+                <div class="card">
+                    <div class="card-body-flex">
+                        <h2>Listado de Ventas</h2>
+
+                        <table  border="6" >
+                            <h1 class="center">Listado de Ventas</h1>
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Cantidad</th>
+                                    <th>Monto</th>
+                                    <th>Monto Total</th>
+                                    <th>Fecha </th>
+                                    <th>Modificacion</th>
+                                    <th>Producto</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for venta in object_list %}
+                                <tr>
+                                    
+                                    <td>{{ venta.idVentaDetalle }}</td>
+                                    <td>{{ venta.cantidad }}</td>
+                                    <td>{{ venta.monto }}</td>
+                                    <td>{{ venta.monto_total }}</td>
+                                    <td>{{ venta.fecha }}</td>
+                                    <td>{{ venta.modificacion}}</td>
+                                    <td>{{ venta.producto }}</td>
+                                    
+                                    <td> <a href="#">Editar</a> <a href="#">Eliminar</a> </td>
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+{% endblock body %}
