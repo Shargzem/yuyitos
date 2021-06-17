@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 
 from django.urls import path
-from yuyitosApp.views import agregar_cliente, editarCliente, eliminarCliente, listado_cliente, inicio, agregar_producto, listado_producto, editarProducto, eliminarProducto, agregar_fiado, listado_fiado
+from yuyitosApp.views import agregar_cliente, editarCliente, eliminarCliente, listado_cliente, inicio, agregar_producto, listado_producto, editarProducto, eliminarProducto, agregar_fiado, listado_fiado, home
 from yuyitosApp.class_view import ClienteList, ClienteCreate, ClienteUpdate, ClienteDelete, ProductoList, ProductoCreate, ProductoUpdate, ProductoDelete, FiadoList, FiadoCreate, FiadoUpdate, FiadoDelete, Venta_detalleList, Venta_detalleCreate, Venta_detalleUpdate, Venta_detalleDelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio', inicio, name='inicio'),
+    path('inicio/', inicio, name='inicio'),
+    path('home/', home, name='home'),
     path('agregar_cliente/', ClienteCreate.as_view(), name='agregar_cliente'),
     path('listado_cliente/', ClienteList.as_view(), name='listado_cliente'),
     path('editar_cliente/<int:pk>/', ClienteUpdate.as_view(), name='editar_cliente'),

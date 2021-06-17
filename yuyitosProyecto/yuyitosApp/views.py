@@ -13,6 +13,10 @@ def inicio(request):
     return render(request, 'inicio.html')
 
 
+#Principal
+def home(request):
+    return render(request, 'home.html')
+
 #Begin Cliente
 
 def listado_cliente(request):

@@ -60,7 +60,7 @@ class Producto(models.Model):
     familia_producto = CharField(max_length=100)
     descripcion = models.CharField(max_length=100)
     fecha_vencimiento = models.DateTimeField()
-    estado = models.BooleanField()
+    estado = models.BooleanField(default=True)
     precio_costo = models.IntegerField()
     precio_venta = models.IntegerField()
     modificacion = models.DateTimeField(auto_now=True)

@@ -4,10 +4,6 @@ from .models import Administrador, Pedido, Proveedor, Producto, Venta_detalle, T
 # Register your models here.
 
 
-
-
-
-
 admin.site.register(Administrador)
 admin.site.register(Pedido)
 admin.site.register(Proveedor)
